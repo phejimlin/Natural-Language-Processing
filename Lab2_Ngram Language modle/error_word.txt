@@ -1,0 +1,20 @@
+a movie was showen      a movie was shown
+
+a  ->  a
+movie  ->  movie
+was  ->  was
+showen  ->  showed
+
+
+companys started to work        companies started to work
+
+companys  ->  company
+started  ->  started
+to  ->  to
+work  ->  work
+
+
+their is        there is
+
+their  ->  their
+is  ->  is
