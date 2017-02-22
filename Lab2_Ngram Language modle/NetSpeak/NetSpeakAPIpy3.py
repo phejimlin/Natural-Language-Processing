@@ -55,7 +55,7 @@ if __name__ == "__main__":
     # Search_Result = SE.search("approach that *")
     # print Search_Result
     # at * time
-    test = 'when the brake is finished'.split()
+    test = 'when the brake is strange'.split()
     # test = {'showing', 'snoring', 'sowing', 'knowing', 'slowing'}
     print(test)
     # test = '? is finished'
