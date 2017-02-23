@@ -41,38 +41,45 @@ def correct(word):
     if candidates:
         return candidates
     else:
-        candidates = known([word]) or known(edits1(word)) or known_edits2(word)
+        candidates = sort_word_count(known([word]).union(known(edits1(word)))) or sort_word_count(known_edits2(word))
+        # candidates = known([word]) or known(edits1(word)) or known_edits2(word)
         candidates.add(word)
         print(('candidates:', candidates))
-        temp = unigram_from_netspeak(candidates)
-        print(('candidates after unigram:', temp))
-        return temp
+        return candidates
     # return max(candidates, key=NWORDS.get)
 
 
-def unigram_from_netspeak(word_set):
-    result = set()
+def sort_word_count(word_list):
+    word_count_dict = {}
+    for candidate_word in word_list:
+        word_count_dict[candidate_word] = NWORDS[candidate_word]
+    sorted_result = [(w, word_count_dict[w]) for w in sorted(word_count_dict, key=word_count_dict.get, reverse=True)]
+    # print(sorted_result)
+    candidates = set()
+    for candidate in sorted_result[:5]:
+        candidates.add(candidate[0])
+    return candidates
+
+
+def unigram_caculate_rigit_word(word_set):
+    result_set = set()
     for word in word_set:
-        lemmatize_word = lmtzr.lemmatize(word, 'v')
-        # print(lemmatize_word)
-        res = SE.search(lemmatize_word)
-        if lemmatize_word in ngrams_cache.keys():
-            # print(('hit', lemmatize_word))
+        res = SE.search(word)
+        if word in ngrams_cache.keys():
             result.add(word)
         else:
             if res:
-                # print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
+                print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
                 result.add(word)
                 ngrams_cache[word] = res[0][1]
             else:
-                ngrams_cache[word] = 0
-                # print('not found')
-    return result
+                ngrams_cache[word] = 1
+    return result_set
 
 
 def find_confusables(word):
-    for line in open('lab2.confusables.txt', 'r'):
-        confusables_list = line.split('	')
+    for confusables_line in open('lab2.confusables.txt', 'r'):
+        confusables_list = confusables_line.split('	')
         confusables_list[1] = confusables_list[1].rstrip()
         if word in confusables_list:
             return set(x for x in confusables_list)
@@ -99,44 +106,39 @@ def combine_two_word_group(word_group1, word_group2):
     return sentence_list
 
 
-def ngrams(sentence_list):
-    for index, sentence in enumerate(sentence_list):
+def calculate_best_candidates(sentence_list):
+    for i, sentence in enumerate(sentence_list):
         word_list = sentence.split()
-        score = 0
-        for i in range(len(word_list) - 3 + 1):
-            # print(i)
-            query_sentence = ' '.join(word_list[i:i + 3])
-            # print(query_sentence in ngrams_cache.keys())
-            if query_sentence in ngrams_cache.keys():
-                # print(('hit', query_sentence))
-                score += ngrams_cache[query_sentence]
-            else:
-                res = SE.search(query_sentence)
-                if res:
-                    score += res[0][1]
-                    ngrams_cache[query_sentence] = res[0][1]
-                    print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
-                else:
-                    ngrams_cache[query_sentence] = 0
-                    # print('not found')
-        sentence_list[index] = (sentence, score)
-    print(('sentence list score:', sentence_list))
+        # print(word_list)
+        candidates_score = ngrams_calculate_score(3, word_list) * ngrams_calculate_score(len(word_list), word_list)
+        # print(candidates_score)
+        sentence_list[i] = (sentence, candidates_score)
+    # print(('sentence list score:', sentence_list))
     return max(sentence_list, key=lambda x: x[1])[0]
 
+
+def ngrams_calculate_score(n, word_list):
+    if n > 5:
+        n = 5
+    candidates_score = 1
+    for i in range(len(word_list) - n + 1):
+        # print(i)
+        query_sentence = ' '.join(word_list[i:i + n])
+        # print(query_sentence in ngrams_cache.keys())
+        if query_sentence in ngrams_cache.keys():
+            # print(('hit', query_sentence))
+            candidates_score += ngrams_cache[query_sentence]
+        else:
+            res = SE.search(query_sentence)
+            if res:
+                candidates_score += res[0][1]
+                ngrams_cache[query_sentence] = res[0][1]
+                print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
+            else:
+                ngrams_cache[query_sentence] = 1  # avoid * 0 = 0
+    return candidates_score
 # SE = NetSpeak()
 SE = Linggle()
-
-# print('speling ->', correct('speling'))
-# print('korrecter ->', correct('korrecter'))
-# print(correct('snowing'))
-# print(known_edits2('snowing'))
-# print(edits1('snowing'))
-# print(known(['snowing']))
-
-# print(unigram_from_netspeak({'snor', 'snow', 'slowing', 'knowing', 'showing', 'sowing'}))
-# find_confusables('coarse')
-
-
 
 file = open('lab2.test.1.txt', 'r')
 hits = 0
@@ -145,26 +147,26 @@ corrections = 0
 for index, line in enumerate(file):
     print(index)
     if index == 20:
-        print(hits, corrections, error)
-        Precision = hits / corrections * 100
-        Recall = hits / error * 100
-        print('Precision: ' + str(Precision))
-        print('Recall: ' + str(Recall))
+        print('hits:' + str(hits))
+        print('corrections:' + str(corrections))
+        print('error:' + str(error))
+        Precision = corrections / hits * 100
+        Recall = error / hits * 100
+        print('Precision: ' + str(Precision) + '%')
+        print('Recall: ' + str(Recall) + '%')
         break
 
     print(line)
-    answer = line.split(' 	')[1].lower().split('\n')[0]
+    answer = line.split(' 	')[1].split('\n')[0]
     error_sentence = line.split(' 	')[0]
     sentence_candidates = []
-    for word in re.split('-| ', error_sentence):
-        word = word.lower()
-        # word = lmtzr.lemmatize(word)
-        correct_word=correct(word)
-        # print(word, ' -> ', correct_word)
+    for w in re.split('-| ', error_sentence):
+        correct_word = correct(w)
         sentence_candidates.append(correct_word)
-    print(('Every word candidates: ', sentence_candidates))
+    # print(('Every word candidates: ', sentence_candidates))
 
-    result = ngrams(compose_candidates_sentence(sentence_candidates))
+    result = calculate_best_candidates(compose_candidates_sentence(sentence_candidates))
+    print(answer)
     print(result)
     hits += 1
     if answer == result:
@@ -175,7 +177,7 @@ for index, line in enumerate(file):
         print('Error...')
     print('\n')
 
-Precision = hits/corrections*100
-Recall = hits/error*100
-print('Precision: ' + str(Precision))
-print('Recall: ' + str(Recall))
+# Precision = hits/corrections*100
+# Recall = hits/error*100
+# print('Precision: ' + str(Precision))
+# print('Recall: ' + str(Recall))
