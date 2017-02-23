@@ -1,0 +1,146 @@
+0
+I felt very strang      I felt very strange
+
+I felt very strange
+Correct!!!!
+
+
+1
+at brake time   at break time
+
+at break time
+Correct!!!!
+
+
+2
+when the brack was finished     when the break was finished
+
+when the track was finished
+Error...
+
+
+3
+in the weanter when it was snowing      in the winter when it was snowing
+
+in the winter when it was snowing
+Correct!!!!
+
+
+4
+I thought it was a gost         I thought it was a ghost
+
+I thought it was a most
+Error...
+
+
+5
+everything expect the houses    everything except the houses
+
+everything expect the house
+Error...
+
+
+6
+when I first steped     when I first stepped
+
+when I first stepped
+Correct!!!!
+
+
+7
+and saw streagh colow people    and saw strange colow people
+
+and saw streaks colon peopled
+Error...
+
+
+8
+and saw streagh colow people    and saw streagh coloured people
+
+and saw streaks colon peoples
+Error...
+
+
+9
+I was on an exclation   I was on an escalator
+
+I was in an exception
+Error...
+
+
+10
+I noicey that I was on this thing       I noticed that I was on this thing
+
+I noticed that I was in this thing
+Error...
+
+
+11
+through the fance       through the fence
+
+through the fence
+Correct!!!!
+
+
+12
+the hunters kille them  the hunters kill them
+
+the hunters kill the
+Error...
+
+
+13
+they kill birds with their nerrow       they kill birds with their arrow
+
+they kill birds with their narrow
+Error...
+
+
+14
+make a depe hole        make a deep hole
+
+make a deep hole
+Correct!!!!
+
+
+15
+to tidy up his gardon   to tidy up his garden
+
+to tidy up his garden
+Correct!!!!
+
+
+16
+the wind belu the leaves        the wind blew the leaves
+
+the wind belt he leases
+Error...
+
+
+17
+Mr J. was very angray   Mr J. was very angry
+
+or he was very angry
+Error...
+
+
+18
+garden full of leavs    garden full of leaves
+
+garden full of leaves
+Correct!!!!
+
+
+19
+talk to the manger      talk to the manager
+
+talk to the manager
+Correct!!!!
+
+
+20
+hits:20
+corrections:9
+error:11
+Precision: 45.0%
+Recall: 55.00000000000001%

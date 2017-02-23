@@ -44,7 +44,7 @@ def correct(word):
         candidates = sort_word_count(known([word]).union(known(edits1(word)))) or sort_word_count(known_edits2(word))
         # candidates = known([word]) or known(edits1(word)) or known_edits2(word)
         candidates.add(word)
-        print(('candidates:', candidates))
+        # print(('candidates:', candidates))
         return candidates
     # return max(candidates, key=NWORDS.get)
 
@@ -65,12 +65,12 @@ def unigram_caculate_rigit_word(word_set):
     result_set = set()
     for word in word_set:
         res = SE.search(word)
-        if word in ngrams_cache.keys():
-            result.add(word)
+        if word in ngrams_cache.keys() and ngrams_cache != 1:
+            result_set.add(word)
         else:
             if res:
-                print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
-                result.add(word)
+                # print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
+                result_set.add(word)
                 ngrams_cache[word] = res[0][1]
             else:
                 ngrams_cache[word] = 1
@@ -133,7 +133,7 @@ def ngrams_calculate_score(n, word_list):
             if res:
                 candidates_score += res[0][1]
                 ngrams_cache[query_sentence] = res[0][1]
-                print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
+                # print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
             else:
                 ngrams_cache[query_sentence] = 1  # avoid * 0 = 0
     return candidates_score
@@ -166,7 +166,7 @@ for index, line in enumerate(file):
     # print(('Every word candidates: ', sentence_candidates))
 
     result = calculate_best_candidates(compose_candidates_sentence(sentence_candidates))
-    print(answer)
+    # print(answer)
     print(result)
     hits += 1
     if answer == result:
