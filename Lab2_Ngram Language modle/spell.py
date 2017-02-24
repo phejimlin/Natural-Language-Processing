@@ -1,9 +1,5 @@
 import re, collections
-from NetSpeak.NetSpeakAPIpy3 import NetSpeak
 from Linggle.LinggleAPI import Linggle
-from nltk import PorterStemmer
-from nltk.stem.wordnet import WordNetLemmatizer
-lmtzr = WordNetLemmatizer()
 from itertools import product
 
 ngrams_cache = {}
@@ -42,11 +38,8 @@ def correct(word):
         return candidates
     else:
         candidates = sort_word_count(known([word]).union(known(edits1(word)))) or sort_word_count(known_edits2(word))
-        # candidates = known([word]) or known(edits1(word)) or known_edits2(word)
-        candidates.add(word)
-        # print(('candidates:', candidates))
+        candidates.add(word)  # Add original word to candidates avoid the word not in big.txt
         return candidates
-    # return max(candidates, key=NWORDS.get)
 
 
 def sort_word_count(word_list):
@@ -54,27 +47,10 @@ def sort_word_count(word_list):
     for candidate_word in word_list:
         word_count_dict[candidate_word] = NWORDS[candidate_word]
     sorted_result = [(w, word_count_dict[w]) for w in sorted(word_count_dict, key=word_count_dict.get, reverse=True)]
-    # print(sorted_result)
     candidates = set()
-    for candidate in sorted_result[:5]:
+    for candidate in sorted_result[:5]:  # Just take the word whose frequency is top 5 in the big.txt to candidates.
         candidates.add(candidate[0])
     return candidates
-
-
-def unigram_caculate_rigit_word(word_set):
-    result_set = set()
-    for word in word_set:
-        res = SE.search(word)
-        if word in ngrams_cache.keys() and ngrams_cache != 1:
-            result_set.add(word)
-        else:
-            if res:
-                # print('\n'.join('\t'.join([str(y) for y in x]) for x in res))
-                result_set.add(word)
-                ngrams_cache[word] = res[0][1]
-            else:
-                ngrams_cache[word] = 1
-    return result_set
 
 
 def find_confusables(word):
@@ -107,13 +83,11 @@ def combine_two_word_group(word_group1, word_group2):
 
 
 def calculate_best_candidates(sentence_list):
+    # Use every candidates sentence to run 3-grams and its length grams to chose the highest frequency sentence.
     for i, sentence in enumerate(sentence_list):
         word_list = sentence.split()
-        # print(word_list)
         candidates_score = ngrams_calculate_score(3, word_list) * ngrams_calculate_score(len(word_list), word_list)
-        # print(candidates_score)
         sentence_list[i] = (sentence, candidates_score)
-    # print(('sentence list score:', sentence_list))
     return max(sentence_list, key=lambda x: x[1])[0]
 
 
@@ -122,11 +96,9 @@ def ngrams_calculate_score(n, word_list):
         n = 5
     candidates_score = 1
     for i in range(len(word_list) - n + 1):
-        # print(i)
         query_sentence = ' '.join(word_list[i:i + n])
-        # print(query_sentence in ngrams_cache.keys())
         if query_sentence in ngrams_cache.keys():
-            # print(('hit', query_sentence))
+            # A dict to do cache function.
             candidates_score += ngrams_cache[query_sentence]
         else:
             res = SE.search(query_sentence)
@@ -137,47 +109,42 @@ def ngrams_calculate_score(n, word_list):
             else:
                 ngrams_cache[query_sentence] = 1  # avoid * 0 = 0
     return candidates_score
-# SE = NetSpeak()
-SE = Linggle()
 
+SE = Linggle()
+f = open('result_answer.txt', 'w')
 file = open('lab2.test.1.txt', 'r')
 hits = 0
 error = 0
 corrections = 0
 for index, line in enumerate(file):
-    print(index)
-    if index == 20:
-        print('hits:' + str(hits))
-        print('corrections:' + str(corrections))
-        print('error:' + str(error))
-        Precision = corrections / hits * 100
-        Recall = error / hits * 100
-        print('Precision: ' + str(Precision) + '%')
-        print('Recall: ' + str(Recall) + '%')
-        break
+    f.write(str(index)+'. \n' + 'Title: ' + line.rstrip() + '\n')
+    print(str(index)+'. \n' + 'Title: ' + line.rstrip() + '\n')
 
-    print(line)
+    # Ex: line will be: a man waight for the animal 	a man waits for the animal
     answer = line.split(' 	')[1].split('\n')[0]
     error_sentence = line.split(' 	')[0]
+
     sentence_candidates = []
     for w in re.split('-| ', error_sentence):
         correct_word = correct(w)
         sentence_candidates.append(correct_word)
-    # print(('Every word candidates: ', sentence_candidates))
-
+    # Ex: sentence_candidates will be [{'a'}, {'man'}, {'weight', 'wight', 'wright'}, {'for'}, {'the'}, {'animal'}]
     result = calculate_best_candidates(compose_candidates_sentence(sentence_candidates))
-    # print(answer)
-    print(result)
-    hits += 1
+
+    # Calculate corrections and error.
     if answer == result:
         corrections += 1
-        print('Correct!!!!')
+        print('Correct!!!!' + '\n')
+        f.write('Correct!!!!' + '\n')
     else:
         error += 1
-        print('Error...')
-    print('\n')
+        print('Error...' + '\n')
+        f.write('Error...' + '\n')
+    hits += 1
+    print('Result: ' + result + '\n' + 'hits: ' + str(hits) + '  corrections: ' + str(corrections) + '  error: ' + str(error) + '\n\n')
+    f.write('Result: ' + result + '\n' + 'hits: ' + str(hits) + '  corrections: ' + str(corrections) + '  error: ' + str(error) + '\n\n')
 
-# Precision = hits/corrections*100
-# Recall = hits/error*100
-# print('Precision: ' + str(Precision))
-# print('Recall: ' + str(Recall))
+Precision = corrections / hits * 100
+Recall = error / hits * 100
+print('Precision: ' + str(Precision) + '% \n' + 'Recall: ' + str(Recall) + '%')
+f.write('Precision: ' + str(Precision) + '% \n' + 'Recall: ' + str(Recall) + '%')
