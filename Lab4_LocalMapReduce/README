@@ -1,0 +1,20 @@
+# word count
+$ cat citeseerx_descriptions_sents.txt.50000|python3 wc_map.py|sort|python3 count_reduce.py
+
+# word count with local-mapreduce
+$ cat citeseerx_descriptions_sents.txt.50000|./lmr 1M 16 'python3 wc_map.py' 'python3 count_reduce.py' wordcount_result
+
+
+# ngram count
+$ cat citeseerx_descriptions_sents.txt.50000|python3 wc_map.py|sort|python3 count_reduce.py
+
+# ngram count with local-mapreduce
+$ cat citeseerx_descriptions_sents.txt.50000|./lmr 1M 16 'python3 nc_map.py' 'python3 count_reduce.py' ngramcount_result
+
+
+# collocation extraction
+$ cat citeseerx_descriptions_sents.txt.50000|python3 extract_collocation.py
+
+
+# collocation extraction with local-mapreduce
+$ cat citeseerx_descriptions_sents.txt.50000|./lmr 1M 16 'python3 coll_map.py' 'python3 coll_reduce.py' collocation_result
