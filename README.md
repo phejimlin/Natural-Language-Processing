@@ -25,7 +25,10 @@ Example:
 * Test case 2 is to correct right sentence and see false alarm.
 * hits: 198 corrections: 116  error: 82
 
-## [Lab3_collocationExtraction](./Lab3_collocationExtraction/2017-0307%20NLP%20Week%204%20Collocation%20Extraction.pdf)
+## [Lab3 Collocation Extraction](./Lab3_collocationExtraction/2017-0307%20NLP%20Week%204%20Collocation%20Extraction.pdf)
 ### Goal is to find Collocation word by using skip bigrams and Smajda's Algorithm.
 Code [here](./Lab3_collocationExtraction/nlplab_lab03.ipynb).
+
+## [Lab4 Local Map-Reduce](./Lab4_LocalMapReduce/2017-0307%20NLP%20Week%204%20Collocation%20Extraction%20with%20Mapreduce.pdf)
+### Goal is to use [lmr](https://github.com/d2207197/local-mapreduce) to run Collocation Extraction by local map-reduce.
 
