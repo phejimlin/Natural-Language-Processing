@@ -17,7 +17,10 @@ Example:
 * an ansion method of hunting -> an ancient method of hunting
 * at brake time -> at break time
 
-In 200 sentence in lab2.test.1.txt. My result is:
-* Hits: 199  Corrections: 91  Error: 108 
-* Precision: 45.7286432160804% 
-* Recall: 54.2713567839196%
+[Result](./Lab2_Ngram%20Language%20modle/report.txt):
+* Test case 1 is to correct wrong sentence.
+* hits: 198  corrections: 90  error: 108
+
+
+* Test case 2 is to correct right sentence and see false alarm.
+* hits: 198 corrections: 116  error: 82

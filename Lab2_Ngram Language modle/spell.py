@@ -116,35 +116,36 @@ file = open('lab2.test.1.txt', 'r')
 hits = 0
 error = 0
 corrections = 0
+not_alter_word = 0
 for index, line in enumerate(file):
-    f.write(str(index)+'. \n' + 'Title: ' + line.rstrip() + '\n')
-    print(str(index)+'. \n' + 'Title: ' + line.rstrip() + '\n')
+        f.write(str(index)+'. \n' + 'Title: ' + line.rstrip() + '\n')
+        print(str(index)+'. \n' + 'Title: ' + line.rstrip() + '\n')
 
-    # Ex: line will be: a man waight for the animal 	a man waits for the animal
-    answer = line.split(' 	')[1].split('\n')[0]
-    error_sentence = line.split(' 	')[0]
+        # Ex: line will be: a man waight for the animal 	a man waits for the animal
+        answer = line.split(' 	')[1].split('\n')[0]
+        error_sentence = line.split(' 	')[0]
 
-    sentence_candidates = []
-    for w in re.split('-| ', error_sentence):
-        correct_word = correct(w)
-        sentence_candidates.append(correct_word)
-    # Ex: sentence_candidates will be [{'a'}, {'man'}, {'weight', 'wight', 'wright'}, {'for'}, {'the'}, {'animal'}]
-    result = calculate_best_candidates(compose_candidates_sentence(sentence_candidates))
+        sentence_candidates = []
+        for w in re.split('-| ', error_sentence):
+            correct_word = correct(w)
+            sentence_candidates.append(correct_word)
+        # Ex: sentence_candidates will be [{'a'}, {'man'}, {'weight', 'wight', 'wright'}, {'for'}, {'the'}, {'animal'}]
+        result = calculate_best_candidates(compose_candidates_sentence(sentence_candidates))
 
-    # Calculate corrections and error.
-    if answer == result:
-        corrections += 1
-        print('Correct!!!!' + '\n')
-        f.write('Correct!!!!' + '\n')
-    else:
-        error += 1
-        print('Error...' + '\n')
-        f.write('Error...' + '\n')
-    hits += 1
-    print('Result: ' + result + '\n' + 'hits: ' + str(hits) + '  corrections: ' + str(corrections) + '  error: ' + str(error) + '\n\n')
-    f.write('Result: ' + result + '\n' + 'hits: ' + str(hits) + '  corrections: ' + str(corrections) + '  error: ' + str(error) + '\n\n')
+        # Calculate corrections and error.
+        if answer == result:
+            corrections += 1
+            print('Correct!!!!' + '\n')
+            f.write('Correct!!!!' + '\n')
+        elif error_sentence == result:
+            not_alter_word += 1
+            print('not_alter_word:' + str(not_alter_word) + '\n')
+            f.write('not_alter_word:' + str(not_alter_word) + '\n')
+        else:
+            error += 1
+            print('Error...' + '\n')
+            f.write('Error...' + '\n')
+        hits += 1
+        print('Result: ' + result + '\n' + 'hits: ' + str(hits) + '  corrections: ' + str(corrections) + '  error: ' + str(error) + '\n\n')
+        f.write('Result: ' + result + '\n' + 'hits: ' + str(hits) + '  corrections: ' + str(corrections) + '  error: ' + str(error) + '\n\n')
 
-Precision = corrections / hits * 100
-Recall = error / hits * 100
-print('Precision: ' + str(Precision) + '% \n' + 'Recall: ' + str(Recall) + '%')
-f.write('Precision: ' + str(Precision) + '% \n' + 'Recall: ' + str(Recall) + '%')

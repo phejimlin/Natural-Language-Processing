@@ -1,0 +1,47 @@
+How to run your program?
+python3 spell.py
+
+
+
+Elaborate the logic of your correction system.
+For example: input I felt very strang
+
+To calculate every word’s candidates:
+{'t', 's', 'i', 'o', 'I', 'a'}
+{'feet', 'belt', 'fell', 'felt', 'melt'}
+{'vera', 'very', 'vary', 'every', 'vewy'}
+{'strang', 'strand', 'strange', 'sprang', 'string', 'strong'}
+
+And using python function “product” to all possible sentence.
+e.g. t feet vera strang, t feet vera strand…….
+
+To run 3-grams * length-grams to chose best candidate by crawling linggle.
+
+The answer comes up.
+
+
+Challenges faced while implementing and how do you solve it.
+
+
+Original spell.py code to chose candidates is that:
+“known([word] or known(edits1(word))”
+It will return first set word if there is word in word set1.
+But some correct word is in word set 2. 
+So I take them into consideration by “known([word]).union(known(edits1(word))”
+And problem solve.
+
+Another problem is that result’s V or N is changed because of linggle’s word count.
+E.g. input: security control
+My code return security controls because its word count in linggle more than input’s one.
+Maybe it’s n-grams drawback.
+
+
+Test case 1:  Result at result_lab2.test.1.txt
+hits: 198  corrections: 90  error: 108
+Test case 2:  Result at result_lab2.test.2.txt
+hits: 198 corrections: 116  error: 82
+
+Precision: 0.464   // 4 same output
+Recall: 0.454546
+F-measure: 0.228625
+FalseAlarm: 0.414

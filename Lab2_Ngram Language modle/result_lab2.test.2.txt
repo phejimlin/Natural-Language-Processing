@@ -1,0 +1,1197 @@
+0. 
+Title: I felt very strange	I felt very strange
+Correct!!!!
+Result: I felt very strange
+hits: 1  corrections: 1  error: 0
+
+1. 
+Title: at break time	at break time
+Correct!!!!
+Result: at break time
+hits: 2  corrections: 2  error: 0
+
+2. 
+Title: when the break was finished	when the break was finished
+Error...
+Result: when they break as finished
+hits: 3  corrections: 2  error: 1
+
+3. 
+Title: in the winter when it was snowing	in the winter when it was snowing
+Correct!!!!
+Result: in the winter when it was snowing
+hits: 4  corrections: 3  error: 1
+
+4. 
+Title: I thought it was a ghost	I thought it was a ghost
+Correct!!!!
+Result: I thought it was a ghost
+hits: 5  corrections: 4  error: 1
+
+5. 
+Title: everything except the houses	everything except the houses
+Error...
+Result: everything except the house
+hits: 6  corrections: 4  error: 2
+
+6. 
+Title: when I first stepped	when I first stepped
+Correct!!!!
+Result: when I first stepped
+hits: 7  corrections: 5  error: 2
+
+7. 
+Title: and saw strange colow people	and saw strange colow people
+Error...
+Result: and saw strange colon people
+hits: 8  corrections: 5  error: 3
+
+8. 
+Title: and saw streagh coloured people	and saw streagh coloured people
+Error...
+Result: and saw streaks coloured people
+hits: 9  corrections: 5  error: 4
+
+9. 
+Title: I was on an escalator	I was on an escalator
+Correct!!!!
+Result: I was on an escalator
+hits: 10  corrections: 6  error: 4
+
+10. 
+Title: I noticed that I was on this thing	I noticed that I was on this thing
+Error...
+Result: I noticed that I was in this thing
+hits: 11  corrections: 6  error: 5
+
+11. 
+Title: through the fence	through the fence
+Correct!!!!
+Result: through the fence
+hits: 12  corrections: 7  error: 5
+
+12. 
+Title: the hunters kill them	the hunters kill them
+Error...
+Result: the hunters kill the
+hits: 13  corrections: 7  error: 6
+
+13. 
+Title: they kill birds with their arrow	they kill birds with their arrow
+Error...
+Result: they kill birds with their arrows
+hits: 14  corrections: 7  error: 7
+
+14. 
+Title: make a deep hole	make a deep hole
+Correct!!!!
+Result: make a deep hole
+hits: 15  corrections: 8  error: 7
+
+15. 
+Title: to tidy up his garden	to tidy up his garden
+Correct!!!!
+Result: to tidy up his garden
+hits: 16  corrections: 9  error: 7
+
+16. 
+Title: the wind blew the leaves	the wind blew the leaves
+Correct!!!!
+Result: the wind blew the leaves
+hits: 17  corrections: 10  error: 7
+
+17. 
+Title: Mr J. was very angry	Mr J. was very angry
+Error...
+Result: or he was very angry
+hits: 18  corrections: 10  error: 8
+
+18. 
+Title: garden full of leaves	garden full of leaves
+Correct!!!!
+Result: garden full of leaves
+hits: 19  corrections: 11  error: 8
+
+19. 
+Title: talk to the manager	talk to the manager
+Correct!!!!
+Result: talk to the manager
+hits: 20  corrections: 12  error: 8
+
+20. 
+Title: they throw a arrow	they throw a arrow
+Error...
+Result: they throw a narrow
+hits: 21  corrections: 12  error: 9
+
+21. 
+Title: an ancient method of hunting	an ancient method of hunting
+Correct!!!!
+Result: an ancient method of hunting
+hits: 22  corrections: 13  error: 9
+
+22. 
+Title: after the deer	after the deer
+Error...
+Result: after the deed
+hits: 23  corrections: 13  error: 10
+
+23. 
+Title: the birds flew up	the birds flew up
+Error...
+Result: the bird flew up
+hits: 24  corrections: 13  error: 11
+
+24. 
+Title: making any noise	making any noise
+Correct!!!!
+Result: making any noise
+hits: 25  corrections: 14  error: 11
+
+25. 
+Title: bring it straight to the hunters	bring it straight to the hunters
+Error...
+Result: bring it straight to the hunter
+hits: 26  corrections: 14  error: 12
+
+26. 
+Title: this means a man waits	this means a man waits
+Error...
+Result: this means a man wants
+hits: 27  corrections: 14  error: 13
+
+27. 
+Title: a man waits for the animal	a man waits for the animal
+Error...
+Result: i can wait for the animals
+hits: 28  corrections: 14  error: 14
+
+28. 
+Title: an arrow in his hand	an arrow in his hand
+Error...
+Result: and arrow in his hands
+hits: 29  corrections: 14  error: 15
+
+29. 
+Title: they dig a hole	they dig a hole
+Error...
+Result: they did a whole
+hits: 30  corrections: 14  error: 16
+
+30. 
+Title: a piece of bait	a piece of bait
+Correct!!!!
+Result: a piece of bait
+hits: 31  corrections: 15  error: 16
+
+31. 
+Title: this trap looks like a cave	this trap looks like a cave
+Error...
+Result: thus trip looks like a case
+hits: 32  corrections: 15  error: 17
+
+32. 
+Title: they make noise	they make noise
+Correct!!!!
+Result: they make noise
+hits: 33  corrections: 16  error: 17
+
+33. 
+Title: the animals are scared	the animals are scared
+Error...
+Result: the animals are cared
+hits: 34  corrections: 16  error: 18
+
+34. 
+Title: the rabbits will run	the rabbits will run
+Error...
+Result: the rabbit will run
+hits: 35  corrections: 16  error: 19
+
+35. 
+Title: they throw stones	they throw stones
+Error...
+Result: they threw stones
+hits: 36  corrections: 16  error: 20
+
+36. 
+Title: they chasing the animals	they chasing the animals
+Error...
+Result: them chasing the animals
+hits: 37  corrections: 16  error: 21
+
+37. 
+Title: three hundred people	three hundred people
+Correct!!!!
+Result: three hundred people
+hits: 38  corrections: 17  error: 21
+
+38. 
+Title: it was colourful	it was colourful
+Error...
+Result: is as colourful
+hits: 39  corrections: 17  error: 22
+
+39. 
+Title: I saw many clowns	I saw many clowns
+Correct!!!!
+Result: I saw many clowns
+hits: 40  corrections: 18  error: 22
+
+40. 
+Title: could do it easily	could do it easily
+Correct!!!!
+Result: could do it easily
+hits: 41  corrections: 19  error: 22
+
+41. 
+Title: blood was coming out	blood was coming out
+Correct!!!!
+Result: blood was coming out
+hits: 42  corrections: 20  error: 22
+
+42. 
+Title: you have wandered away	you have wandered away
+Correct!!!!
+Result: you have wandered away
+hits: 43  corrections: 21  error: 22
+
+43. 
+Title: you can control with your toes	you can control with your toes
+Correct!!!!
+Result: you can control with your toes
+hits: 44  corrections: 22  error: 22
+
+44. 
+Title: chatting to each other	chatting to each other
+Correct!!!!
+Result: chatting to each other
+hits: 45  corrections: 23  error: 22
+
+45. 
+Title: out from the wardrobe	out from the wardrobe
+Correct!!!!
+Result: out from the wardrobe
+hits: 46  corrections: 24  error: 22
+
+46. 
+Title: for controlling temperature	for controlling temperature
+Correct!!!!
+Result: for controlling temperature
+hits: 47  corrections: 25  error: 22
+
+47. 
+Title: friendly with your neighbours	friendly with your neighbours
+Error...
+Result: friendly with your neighbors
+hits: 48  corrections: 25  error: 23
+
+48. 
+Title: the princess has given birth	the princess has given birth
+Correct!!!!
+Result: the princess has given birth
+hits: 49  corrections: 26  error: 23
+
+49. 
+Title: to make arrangements	to make arrangements
+Correct!!!!
+Result: to make arrangements
+hits: 50  corrections: 27  error: 23
+
+50. 
+Title: hit him with a hammer	hit him with a hammer
+Correct!!!!
+Result: hit him with a hammer
+hits: 51  corrections: 28  error: 23
+
+51. 
+Title: they might see you	they might see you
+Correct!!!!
+Result: they might see you
+hits: 52  corrections: 29  error: 23
+
+52. 
+Title: transport is different	transport is different
+Error...
+Result: transport in different
+hits: 53  corrections: 29  error: 24
+
+53. 
+Title: they have different clothes	they have different clothes
+Correct!!!!
+Result: they have different clothes
+hits: 54  corrections: 30  error: 24
+
+54. 
+Title: a plastic sharpener	a plastic sharpener
+Error...
+Result: s elastic sharpened
+hits: 55  corrections: 30  error: 25
+
+55. 
+Title: the chinese invented paper	the chinese invented paper
+Error...
+Result: the chinese invented taper
+hits: 56  corrections: 30  error: 26
+
+56. 
+Title: a bottle of lemonade	a bottle of lemonade
+Correct!!!!
+Result: a bottle of lemonade
+hits: 57  corrections: 31  error: 26
+
+57. 
+Title: to hear you	to hear you
+Error...
+Result: to hear your
+hits: 58  corrections: 31  error: 27
+
+58. 
+Title: on and off	on and off
+Correct!!!!
+Result: on and off
+hits: 59  corrections: 32  error: 27
+
+59. 
+Title: if you are thirsty	if you are thirsty
+Correct!!!!
+Result: if you are thirsty
+hits: 60  corrections: 33  error: 27
+
+60. 
+Title: a match box	a match box
+Correct!!!!
+Result: a match box
+hits: 61  corrections: 34  error: 27
+
+61. 
+Title: all of a sudden	all of a sudden
+Correct!!!!
+Result: all of a sudden
+hits: 62  corrections: 35  error: 27
+
+62. 
+Title: went up the curtain	went up the curtain
+Correct!!!!
+Result: went up the curtain
+hits: 63  corrections: 36  error: 27
+
+63. 
+Title: with bubbles in it	with bubbles in it
+Correct!!!!
+Result: with bubbles in it
+hits: 64  corrections: 37  error: 27
+
+64. 
+Title: so I had a bath	so I had a bath
+Correct!!!!
+Result: so I had a bath
+hits: 65  corrections: 38  error: 27
+
+65. 
+Title: I made clothes with it	I made clothes with it
+Error...
+Result: I make clothes with it
+hits: 66  corrections: 38  error: 28
+
+66. 
+Title: I was scared of it	I was scared of it
+Correct!!!!
+Result: I was scared of it
+hits: 67  corrections: 39  error: 28
+
+67. 
+Title: through the window	through the window
+Correct!!!!
+Result: through the window
+hits: 68  corrections: 40  error: 28
+
+68. 
+Title: one of my exciting days	one of my exciting days
+Error...
+Result: one of my exciting day
+hits: 69  corrections: 40  error: 29
+
+69. 
+Title: found some crumbs and ate them	found some crumbs and ate them
+Error...
+Result: founded some clubs and at the
+hits: 70  corrections: 40  error: 30
+
+70. 
+Title: I was very careful 	I was very careful
+Correct!!!!
+Result: I was very careful 
+hits: 71  corrections: 41  error: 30
+
+71. 
+Title: speaking to a ghost	speaking to a ghost
+Error...
+Result: speaking to a host
+hits: 72  corrections: 41  error: 31
+
+72. 
+Title: to make people scared	to make people scared
+Correct!!!!
+Result: to make people scared
+hits: 73  corrections: 42  error: 31
+
+73. 
+Title: lit a candle	lit a candle
+Correct!!!!
+Result: lit a candle
+hits: 74  corrections: 43  error: 31
+
+74. 
+Title: a man or a lady	a man or a lady
+Correct!!!!
+Result: a man or a lady
+hits: 75  corrections: 44  error: 31
+
+75. 
+Title: something bad happened	something bad happened
+Correct!!!!
+Result: something bad happened
+hits: 76  corrections: 45  error: 31
+
+76. 
+Title: thunder and lightning	thunder and lightning
+Correct!!!!
+Result: thunder and lightning
+hits: 77  corrections: 46  error: 31
+
+77. 
+Title: the inspector, the sergeant	the inspector, the sergeant
+Error...
+Result: the inspector the sergeant
+hits: 78  corrections: 46  error: 32
+
+78. 
+Title: a light and a noise	a light and a noise
+Error...
+Result: at night and a noise
+hits: 79  corrections: 46  error: 33
+
+79. 
+Title: I would rub a rag	I would rub a rag
+Error...
+Result: I could run a ray
+hits: 80  corrections: 46  error: 34
+
+80. 
+Title: crush a police car	crush a police car
+Correct!!!!
+Result: crush a police car
+hits: 81  corrections: 47  error: 34
+
+81. 
+Title: Ian tripped over	Ian tripped over
+Error...
+Result: man tripped over
+hits: 82  corrections: 47  error: 35
+
+82. 
+Title: got a tissue from her bag	got a tissue from her bag
+Error...
+Result: not at issue from her bag
+hits: 83  corrections: 47  error: 36
+
+83. 
+Title: what do you mean	what do you mean
+Correct!!!!
+Result: what do you mean
+hits: 84  corrections: 48  error: 36
+
+84. 
+Title: I'm writing a letter	I'm writing a letter
+Error...
+Result: am writing a letter
+hits: 85  corrections: 48  error: 37
+
+85. 
+Title: a straight line	a straight line
+Correct!!!!
+Result: a straight line
+hits: 86  corrections: 49  error: 37
+
+86. 
+Title: I thought it was going to rain	I thought it was going to rain
+Correct!!!!
+Result: I thought it was going to rain
+hits: 87  corrections: 50  error: 37
+
+87. 
+Title: he just wanted to die	he just wanted to die
+Correct!!!!
+Result: he just wanted to die
+hits: 88  corrections: 51  error: 37
+
+88. 
+Title: bouncing a ball	bouncing a ball
+Correct!!!!
+Result: bouncing a ball
+hits: 89  corrections: 52  error: 37
+
+89. 
+Title: ate some fruits	ate some fruits
+Error...
+Result: ate some fruit
+hits: 90  corrections: 52  error: 38
+
+90. 
+Title: he doesn't notice	he doesn't notice
+Error...
+Result: her doesn novice
+hits: 91  corrections: 52  error: 39
+
+91. 
+Title: a bull charging at him	a bull charging at him
+Correct!!!!
+Result: a bull charging at him
+hits: 92  corrections: 53  error: 39
+
+92. 
+Title: and ice-cream stall	and ice-cream stall
+Error...
+Result: an ice cream stall
+hits: 93  corrections: 53  error: 40
+
+93. 
+Title: there was a giraffe	there was a giraffe
+Correct!!!!
+Result: there was a giraffe
+hits: 94  corrections: 54  error: 40
+
+94. 
+Title: then a crocodile came	then a crocodile came
+Error...
+Result: than a crocodile came
+hits: 95  corrections: 54  error: 41
+
+95. 
+Title: iron is a hard metal	iron is a hard metal
+Error...
+Result: icon is a hard metal
+hits: 96  corrections: 54  error: 42
+
+96. 
+Title: four pen knives	four pen knives
+Error...
+Result: four men knaves
+hits: 97  corrections: 54  error: 43
+
+97. 
+Title: there are four chimneys	there are four chimneys
+Correct!!!!
+Result: there are four chimneys
+hits: 98  corrections: 55  error: 43
+
+98. 
+Title: on the blackboard	on the blackboard
+Correct!!!!
+Result: on the blackboard
+hits: 99  corrections: 56  error: 43
+
+99. 
+Title: on the globe	on the globe
+Error...
+Result: of the globe
+hits: 100  corrections: 56  error: 44
+
+100. 
+Title: in the cupboard	in the cupboard
+Correct!!!!
+Result: in the cupboard
+hits: 101  corrections: 57  error: 44
+
+101. 
+Title: the light switch	the light switch
+Correct!!!!
+Result: the light switch
+hits: 102  corrections: 58  error: 44
+
+102. 
+Title: from the thinnest	from the thinnest
+Correct!!!!
+Result: from the thinnest
+hits: 103  corrections: 59  error: 44
+
+103. 
+Title: to the fattest	to the fattest
+Correct!!!!
+Result: to the fattest
+hits: 104  corrections: 60  error: 44
+
+104. 
+Title: in a field	in a field
+Correct!!!!
+Result: in a field
+hits: 105  corrections: 61  error: 44
+
+105. 
+Title: a cherry red dress	a cherry red dress
+Correct!!!!
+Result: a cherry red dress
+hits: 106  corrections: 62  error: 44
+
+
+-------- run second time -----------------
+
+
+106. 
+Title: the beginning of the play	the beginning of the play
+Correct!!!!
+Result: the beginning of the play
+hits: 1  corrections: 1  error: 0
+
+107.
+Title: fried rice and noodles	fried rice and noodles
+Correct!!!!
+Result: fried rice and noodles
+hits: 2  corrections: 2  error: 0
+
+108.
+Title: carry money with me	carry money with me
+Correct!!!!
+Result: carry money with me
+hits: 3  corrections: 3  error: 0
+
+109.
+Title: they are believe superstitious	they are believe superstitious
+Error...
+Result: the area believe superstitious
+hits: 4  corrections: 3  error: 1
+
+110.
+Title: the things I believe	the things I believe
+Correct!!!!
+Result: the things I believe
+hits: 5  corrections: 4  error: 1
+
+111.
+Title: differences between their knowledge	differences between their knowledge
+Error...
+Result: difference between their knowledge
+hits: 6  corrections: 4  error: 2
+
+112.
+Title: by logical speech	by logical speech
+Error...
+Result: be logical speech
+hits: 7  corrections: 4  error: 3
+
+113.
+Title: a white colour	a white colour
+Error...
+Result: a white color
+hits: 8  corrections: 4  error: 4
+
+114.
+Title: don't make anything break	don't make anything break
+Error...
+Result: dont take anything brake
+hits: 9  corrections: 4  error: 5
+
+115.
+Title: to find out	to find out
+Correct!!!!
+Result: to find out
+hits: 10  corrections: 5  error: 5
+
+116.
+Title: when a couple	when a couple
+Correct!!!!
+Result: when a couple
+hits: 11  corrections: 6  error: 5
+
+117.
+Title: the dustbin is being emptyed	the dustbin is being emptyed
+Error...
+Result: the sustain is being emptied
+hits: 12  corrections: 6  error: 6
+
+118.
+Title: the dustpin is being emptied	the dustpin is being emptied
+Error...
+Result: the sustain is being emptied
+hits: 13  corrections: 6  error: 7
+
+119.
+Title: the roof is being repaired	the roof is being repaired
+Correct!!!!
+Result: the roof is being repaired
+hits: 14  corrections: 7  error: 7
+
+120.
+Title: have to be emptied every day	have to be emptied every day
+Correct!!!!
+Result: have to be emptied every day
+hits: 15  corrections: 8  error: 7
+
+121.
+Title: they were cleaned	they were cleaned
+Error...
+Result: they were cleared
+hits: 16  corrections: 8  error: 8
+
+122.
+Title: he believes in the old story	he believes in the old story
+Error...
+Result: he believed in the old story
+hits: 17  corrections: 8  error: 9
+
+123.
+Title: the most famous player	the most famous player
+Error...
+Result: the most famous players
+hits: 18  corrections: 8  error: 10
+
+124.
+Title: of the century	of the century
+Correct!!!!
+Result: of the century
+hits: 19  corrections: 9  error: 10
+
+125.
+Title: the man had tried to smuggle	the man had tried to smuggle
+Correct!!!!
+Result: the man had tried to smuggle
+hits: 20  corrections: 10  error: 10
+
+126.
+Title: put more petrol	put more petrol
+Correct!!!!
+Result: put more petrol
+hits: 21  corrections: 11  error: 10
+
+127.
+Title: he tried to	he tried to
+Correct!!!!
+Result: he tried to
+hits: 22  corrections: 12  error: 10
+
+128.
+Title: heard a strange noise	heard a strange noise
+Correct!!!!
+Result: heard a strange noise
+hits: 23  corrections: 13  error: 10
+
+129.
+Title: he tried to	he tried to
+Correct!!!!
+Result: he tried to
+hits: 24  corrections: 14  error: 10
+
+130.
+Title: he hit him	he hit him
+Error...
+Result: he hit his
+hits: 25  corrections: 14  error: 11
+
+131.
+Title: he'd forgotten to	he'd forgotten to
+Error...
+Result: head forgotten t
+hits: 26  corrections: 14  error: 12
+
+132.
+Title: he'd set fire to	he'd set fire to
+Error...
+Result: head set fire to
+hits: 27  corrections: 14  error: 13
+
+133.
+Title: he'd shot his wife	he'd shot his wife
+Error...
+Result: head shot his wife
+hits: 28  corrections: 14  error: 14
+
+134.
+Title: sent them to prison	sent them to prison
+Correct!!!!
+Result: sent them to prison
+hits: 29  corrections: 15  error: 14
+
+135.
+Title: crying her eyes out	crying her eyes out
+Correct!!!!
+Result: crying her eyes out
+hits: 30  corrections: 16  error: 14
+
+136.
+Title: last Monday	last Monday
+Correct!!!!
+Result: last Monday
+hits: 31  corrections: 17  error: 14
+
+137.
+Title: put on weight	put on weight
+Error...
+Result: out of eight
+hits: 32  corrections: 17  error: 15
+
+138.
+Title: what had happened	what had happened
+Error...
+Result: what has happened
+hits: 33  corrections: 17  error: 16
+
+139.
+Title: he'd saved the woman	he'd saved the woman
+Error...
+Result: head save the woman
+hits: 34  corrections: 17  error: 17
+
+140.
+Title: become too fat	become too fat
+Correct!!!!
+Result: become too fat
+hits: 35  corrections: 18  error: 17
+
+141.
+Title: what had happened	what had happened
+Error...
+Result: what has happened
+hits: 36  corrections: 18  error: 18
+
+142.
+Title: in holidays today	in holidays today
+Error...
+Result: on holiday today
+hits: 37  corrections: 18  error: 19
+
+143.
+Title: photographs of footprints	photographs of footprints
+Correct!!!!
+Result: photographs of footprints
+hits: 38  corrections: 19  error: 19
+
+144.
+Title: which cannot be explained	which cannot be explained
+Correct!!!!
+Result: which cannot be explained
+hits: 39  corrections: 20  error: 19
+
+145.
+Title: it's a wolf	it's a wolf
+Error...
+Result: its a wolf
+hits: 40  corrections: 20  error: 20
+
+146.
+Title: they aren't discovered	they aren't discovered
+Error...
+Result: the agent discovered
+hits: 41  corrections: 20  error: 21
+
+147.
+Title: to photograph these things	to photograph these things
+Correct!!!!
+Result: to photograph these things
+hits: 42  corrections: 21  error: 21
+
+148.
+Title: an unborn child	an unborn child
+Correct!!!!
+Result: an unborn child
+hits: 43  corrections: 22  error: 21
+
+149.
+Title: the mysterious beach	the mysterious beach
+Error...
+Result: she mysterious teach
+hits: 44  corrections: 22  error: 22
+
+150.
+Title: choosing between	choosing between
+Correct!!!!
+Result: choosing between
+hits: 45  corrections: 23  error: 22
+
+151.
+Title: it represents the	it represents the
+Correct!!!!
+Result: it represents the
+hits: 46  corrections: 24  error: 22
+
+152.
+Title: it is ridiculous that	it is ridiculous that
+Correct!!!!
+Result: it is ridiculous that
+hits: 47  corrections: 25  error: 22
+
+153.
+Title: is scientifically proved	is scientifically proved
+Correct!!!!
+Result: is scientifically proved
+hits: 48  corrections: 26  error: 22
+
+154.
+Title: there are advertisements for	there are advertisements for
+Correct!!!!
+Result: there are advertisements for
+hits: 49  corrections: 27  error: 22
+
+155.
+Title: it was my imagination	it was my imagination
+Correct!!!!
+Result: it was my imagination
+hits: 50  corrections: 28  error: 22
+
+156.
+Title: to ban smoking	to ban smoking
+Correct!!!!
+Result: to ban smoking
+hits: 51  corrections: 29  error: 22
+
+157.
+Title: my happiness depends on	my happiness depends on
+Correct!!!!
+Result: my happiness depends on
+hits: 52  corrections: 30  error: 22
+
+158.
+Title: the pleasant smell of	the pleasant smell of
+Correct!!!!
+Result: the pleasant smell of
+hits: 53  corrections: 31  error: 22
+
+159.
+Title: dialling the number	dialling the number
+Error...
+Result: calling the number
+hits: 54  corrections: 31  error: 23
+
+160.
+Title: actually I had no	actually I had no
+Correct!!!!
+Result: actually I had no
+hits: 55  corrections: 32  error: 23
+
+161.
+Title: the most tiring part	the most tiring part
+Correct!!!!
+Result: the most tiring part
+hits: 56  corrections: 33  error: 23
+
+162.
+Title: gamblers play poker	gamblers play poker
+Error...
+Result: gamblers lay poker
+hits: 57  corrections: 33  error: 24
+
+163.
+Title: the existence of	the existence of
+Correct!!!!
+Result: the existence of
+hits: 58  corrections: 34  error: 24
+
+164.
+Title: physical sensations	physical sensations
+Correct!!!!
+Result: physical sensations
+hits: 59  corrections: 35  error: 24
+
+165.
+Title: it is without doubt	it is without doubt
+Correct!!!!
+Result: it is without doubt
+hits: 60  corrections: 36  error: 24
+
+166.
+Title: let us analyse	let us analyse
+Error...
+Result: let us analyze
+hits: 61  corrections: 36  error: 25
+
+167.
+Title: developing countries	developing countries
+Correct!!!!
+Result: developing countries
+hits: 62  corrections: 37  error: 25
+
+168.
+Title: I personally believe	I personally believe
+Correct!!!!
+Result: I personally believe
+hits: 63  corrections: 38  error: 25
+
+169.
+Title: as often as I breathe	as often as I breathe
+Correct!!!!
+Result: as often as I breathe
+hits: 64  corrections: 39  error: 25
+
+170.
+Title: flowers, perfumes	flowers, perfumes
+Error...
+Result: flowers perfume
+hits: 65  corrections: 39  error: 26
+
+171.
+Title: to interpret what I've said	to interpret what I've said
+Error...
+Result: to interpret that have paid
+hits: 66  corrections: 39  error: 27
+
+172.
+Title: my stomach hurt	my stomach hurt
+Error...
+Result: my stomach hurts
+hits: 67  corrections: 39  error: 28
+
+173.
+Title: surprised and paralysed by	surprised and paralysed by
+Error...
+Result: surprise and paralyzed by
+hits: 68  corrections: 39  error: 29
+
+174.
+Title: I believe it was	I believe it was
+Correct!!!!
+Result: I believe it was
+hits: 69  corrections: 40  error: 29
+
+175.
+Title: when it occurred	when it occurred
+Correct!!!!
+Result: when it occurred
+hits: 70  corrections: 41  error: 29
+
+176.
+Title: she asked us whether	she asked us whether
+Error...
+Result: he asked us whether
+hits: 71  corrections: 41  error: 30
+
+177.
+Title: an extremely hot day	an extremely hot day
+Correct!!!!
+Result: an extremely hot day
+hits: 72  corrections: 42  error: 30
+
+178.
+Title: be able to choose	be able to choose
+Correct!!!!
+Result: be able to choose
+hits: 73  corrections: 43  error: 30
+
+179.
+Title: their opinion about	their opinion about
+Error...
+Result: their opinions about
+hits: 74  corrections: 43  error: 31
+
+180.
+Title: to think what	to think what
+Error...
+Result: to think that
+hits: 75  corrections: 43  error: 32
+
+181.
+Title: to continue with	to continue with
+Correct!!!!
+Result: to continue with
+hits: 76  corrections: 44  error: 32
+
+182.
+Title: it was quite successful	it was quite successful
+Correct!!!!
+Result: it was quite successful
+hits: 77  corrections: 45  error: 32
+
+183.
+Title: I never thought that	I never thought that
+Correct!!!!
+Result: I never thought that
+hits: 78  corrections: 46  error: 32
+
+184.
+Title: I'd heard that	I'd heard that
+Error...
+Result: had heard that
+hits: 79  corrections: 46  error: 33
+
+185.
+Title: he obviously reckoned	he obviously reckoned
+Error...
+Result: she obviously beckoned
+hits: 80  corrections: 46  error: 34
+
+186.
+Title: to praise him	to praise him
+Error...
+Result: to raise his
+hits: 81  corrections: 46  error: 35
+
+187.
+Title: screaming louder than	screaming louder than
+Correct!!!!
+Result: screaming louder than
+hits: 82  corrections: 47  error: 35
+
+188.
+Title: to absorb it	to absorb it
+Correct!!!!
+Result: to absorb it
+hits: 83  corrections: 48  error: 35
+
+189.
+Title: I couldn't stop staring	I couldn't stop staring
+Error...
+Result: I couldn stop string
+hits: 84  corrections: 48  error: 36
+
+190.
+Title: a street cafe	a street cafe
+Correct!!!!
+Result: a street cafe
+hits: 85  corrections: 49  error: 36
+
+191.
+Title: a movie was shown	a movie was shown
+Correct!!!!
+Result: a movie was shown
+hits: 86  corrections: 50  error: 36
+
+192.
+Title: companies started to work	companies started to work
+Correct!!!!
+Result: companies started to work
+hits: 87  corrections: 51  error: 36
+
+193.
+Title: there is	there is
+Correct!!!!
+Result: there is
+hits: 88  corrections: 52  error: 36
+
+194.
+Title: a tendency to	a tendency to
+Correct!!!!
+Result: a tendency to
+hits: 89  corrections: 53  error: 36
+
+195.
+Title: meet in the snack-bar	meet in the snack-bar
+Error...
+Result: meet in the sack bad
+hits: 90  corrections: 53  error: 37
+
+196.
+Title: security control	security control
+Error...
+Result: security controls
+hits: 91  corrections: 53  error: 38
+
+197.
+Title: in contact with	in contact with
+Correct!!!!
+Result: in contact with
+hits: 92  corrections: 54  error: 38
+
+
+first part: hits: 106  corrections: 62  error: 44 (After 105.)
+second part: hits: 92  corrections: 54  error: 38
+
+Total: hits: 198 corrections: 116  error: 82
