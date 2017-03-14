@@ -33,4 +33,6 @@ if __name__ == '__main__':
         for n in range(1, max_distance + 1):
             for ngram in filter(ngram_is_valid, to_ngrams(words, n+1)):
                 # write your code here ...
-                pass
+                first, last = ngram[0], ngram[-1]
+                print(first + '\t' + last + '\t' + str(n))
+                print(last + '\t' + first + '\t' + str(n))

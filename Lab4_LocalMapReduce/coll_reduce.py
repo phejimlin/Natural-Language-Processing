@@ -14,8 +14,14 @@ def parse_line(line):
 
 if __name__ == '__main__':
     for baseword, colls in groupby(map(parse_line, fileinput.input()), key=itemgetter(0)):
+        skipbigrams = defaultdict(Counter)
         # write your code here...
         for _, collword, distance in colls:
-            #  here...
-            pass
-        # or here...
+            distance = int(distance)
+            skipbigrams[collword][distance] += 1
+        baseWord_obj = BaseWord(skipbigrams)
+        # print(baseWord_obj.items())
+
+        for coll, collocate in baseWord_obj.items():
+            for i, freq in collocate.items():
+                print(baseword, coll, i, collocate.strength, collocate.spread, collocate.peak, freq)
