@@ -1,0 +1,206 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>D-Day</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Seafaring Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+<!-- //this_css -->
+<link href="../static/css/friends.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" rel="home" href="/" title="Aahan Krish's Blog - Homepage">ASUS Customer Service</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="col-sm-3 col-md-3 pull-right">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search-term" id="search-term">
+            <div class="input-group-btn">
+                <button id="submit" type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+<svg width="960" height="500"></svg>
+
+<!-- for bootstrap working -->
+<!-- //for bootstrap working -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><script src="https://d3js.org/d3.v4.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+<script>
+var svg = d3.select("svg"),
+	margin = {top: 20, right: 20, bottom: 30, left: 50},
+	width = +svg.attr("width") - margin.left - margin.right,
+	height = +svg.attr("height") - margin.top - margin.bottom,
+	g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var counter = 1
+var datalist = []
+
+var x = d3.scaleOrdinal()
+		.range([0, width]);
+
+var y = d3.scaleLinear()
+		.rangeRound([height, 0]);
+
+var line = d3.line()
+		.x(function(d) { return d.x; })
+		.y(function(d) { return d.y; })
+
+// var line = d3.line()
+//     .x(d3.extent([1,2,3,4,5]))
+//     .y(d3.extent([1,2,3,4,5]));
+
+// x.domain(d3.extent(lineData, function(d) { return d.x; }));
+// y.domain(d3.extent(lineData, function(d) { return d.y; }));
+
+// d3.tsv("data.tsv", function(d) {
+//   d.date = parseTime(d.date);
+//   d.close = +d.close;
+//   return d;
+// }, function(error, data) {
+//   if (error) throw error;
+
+//   x.domain(d3.extent(data, function(d) { return d.date; }));
+//   y.domain(d3.extent(data, function(d) { return d.close; }));
+
+  // g.append("g")
+  //     .attr("transform", "translate(0," + height + ")")
+  //     .call(d3.axisBottom(x))
+  //   .select(".domain")
+  //     .remove();
+
+
+
+
+
+  g.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  g.append("g")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Price ($)");
+
+  // g.append("path")
+  //     .attr("fill", "none")
+  //     .attr("stroke", "steelblue")
+  //     .attr("stroke-linejoin", "round")
+  //     .attr("stroke-linecap", "round")
+  //     .attr("stroke-width", 1.5)
+  //     .attr("d", line(lineData));
+// });
+
+
+// Ajax
+function callApi(){
+	$.ajax({
+    	url: "http://localhost:5000/search?query="+$('#search-term').val(),
+    	type: 'GET',
+    	error: function(xhr) {
+	      alert('Ajax request 發生錯誤');
+	    },
+    	success: function(result){
+    		g.remove();
+    		svg = d3.select("svg"),
+		    margin = {top: 20, right: 20, bottom: 30, left: 50},
+		    width = +svg.attr("width") - margin.left - margin.right,
+		    height = +svg.attr("height") - margin.top - margin.bottom,
+		    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			var x = d3.scaleLinear()
+			    .range([0, width])
+			    .domain([0, 10]);
+
+			var y = d3.scaleLinear()
+			    .rangeRound([height, 0])
+			    .domain([-3, 5]);
+
+			var line = d3.line()
+			    .x(function(d) { return x(d.x); })
+			    .y(function(d) { return y(d.y); })
+
+
+    		console.log(result)
+    		data = {}
+    		data['x'] = counter
+    		data['y'] = result['dialogue_score'][0] 
+    		datalist.push(data);
+        	// $("#div1").html(result);
+        	console.log(datalist);
+
+        	g.append("g")
+		      	.attr("class", "x axis")
+		      	.attr("transform", "translate(0," + height + ")")
+		      	.call(d3.axisBottom(x));
+
+			g.append("g")
+			      .call(d3.axisLeft(y))
+			    .append("text")
+			      .attr("fill", "#000")
+			      .attr("transform", "rotate(-90)")
+			      .attr("y", 6)
+			      .attr("dy", "0.71em")
+			      .attr("text-anchor", "end")
+			      .text("score ($)");
+
+			g.append("path")
+			      .attr("fill", "none")
+			      .attr("stroke", "steelblue")
+			      .attr("stroke-linejoin", "round")
+			      .attr("stroke-linecap", "round")
+			      .attr("stroke-width", 1.5)
+			      .attr("d", line(datalist));
+
+			counter+=1;
+		}
+	});
+}
+
+$("#submit").click(function(){
+    callApi();
+});
+
+$('#search-term').keydown(function (e){
+    if(e.keyCode == 13){
+        callApi();
+    }
+})
+
+</script>
+
+</body>
+</html>
