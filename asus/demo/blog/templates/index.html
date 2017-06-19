@@ -48,8 +48,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
   <h2>情緒＆滿意度偵測程式</h2>
   <p>將客戶的語句，打上右上角的搜尋框，程式將分析這句話的程序與滿意度。</p>          
-  <svg width="480" height="250"></svg>  
-  <table class="table table-bordered" id="demoTable">
+  <svg id='sentenceSvg' width="360" height="250"></svg>
+  <svg id='windowsSvg' width="360" height="250"></svg>  
+  <svg id='dialogueSvg' width="360" height="250"></svg>  
+  
+  <table class="table .table-striped" id="demoTable">
     <thead>
       <tr>
         <th>#</th>
@@ -84,13 +87,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
 <script>
-var svg = d3.select("svg"),
+var sentenceSvg = d3.select("#sentenceSvg"),
 	margin = {top: 20, right: 20, bottom: 30, left: 50},
-	width = +svg.attr("width") - margin.left - margin.right,
-	height = +svg.attr("height") - margin.top - margin.bottom,
-	g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	width = +sentenceSvg.attr("width") - margin.left - margin.right,
+	height = +sentenceSvg.attr("height") - margin.top - margin.bottom,
+	sentence_g = sentenceSvg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var windowsSvg = d3.select("#windowsSvg"),
+	margin = {top: 20, right: 20, bottom: 30, left: 50},
+	width = +windowsSvg.attr("width") - margin.left - margin.right,
+	height = +windowsSvg.attr("height") - margin.top - margin.bottom,
+	windows_g = windowsSvg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var dialogueSvg = d3.select("#dialogueSvg"),
+	margin = {top: 20, right: 20, bottom: 30, left: 50},
+	width = +dialogueSvg.attr("width") - margin.left - margin.right,
+	height = +dialogueSvg.attr("height") - margin.top - margin.bottom,
+	dialogue_g = dialogueSvg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 var counter = 1
-var datalist = []
+var sentenceDataList = [], windowsDataList = [], dialogueDataList = []
 
 var x = d3.scaleOrdinal()
 		.range([0, width]);
@@ -98,17 +114,12 @@ var x = d3.scaleOrdinal()
 var y = d3.scaleLinear()
 		.rangeRound([height, 0]);
 
-var line = d3.line()
-		.x(function(d) { return d.x; })
-		.y(function(d) { return d.y; })
-
-
-  g.append("g")
+  sentence_g.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-  g.append("g")
+  sentence_g.append("g")
       .call(d3.axisLeft(y))
     .append("text")
       .attr("fill", "#000")
@@ -116,7 +127,37 @@ var line = d3.line()
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Price ($)");
+      .text("Score ($)");
+
+ windows_g.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  windows_g.append("g")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Score ($)");
+
+   dialogue_g.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  dialogue_g.append("g")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Score ($)");
 
 function buildTdElement(TrElement, dataInfo){
 	var y = document.createElement("TD");
@@ -148,14 +189,15 @@ function lableResult(score){
 	}
 }
 
-function updateTable(data){
-	// todo remove original windows
+function updateTable(data, sentence_value){
+	$('#windows').remove();
+	$('#dialogue').remove();
 	var sentence = document.createElement("TR");
 	sentence.setAttribute("id", "sentence");
     document.getElementById("demoTable").appendChild(sentence);
     // 次序
     console.log(counter);
-    buildTdElement(sentence, counter)
+    buildTdElement(sentence, counter+': '+sentence_value)
 	// 情緒分數
 	buildTdElement(sentence, data['sentence_score'][0].toFixed(3))
 	//結果
@@ -178,7 +220,7 @@ function updateTable(data){
 	// 情緒分數
 	buildTdElement(windows, data['window_score'][0].toFixed(3))
 	//結果
-	buildTdElement(windows, score2text(data['sentence_score']))
+	buildTdElement(windows, score2text(data['window_score']))
 	//LinearSVC預測結果
 	buildTdElement(windows, lableResult(data['windows_classifier']['linearSVC_clf']))
 	//Naive_Bayes預測結果
@@ -197,7 +239,7 @@ function updateTable(data){
 	// 情緒分數
 	buildTdElement(dialogue, data['dialogue_score'][0].toFixed(3))
 	//結果
-	buildTdElement(dialogue, score2text(data['sentence_score']))
+	buildTdElement(dialogue, score2text(data['dialogue_score']))
 	//LinearSVC預測結果
 	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['linearSVC_clf']))
 	//Naive_Bayes預測結果
@@ -206,14 +248,49 @@ function updateTable(data){
 	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['randomForest_clf']))
 	// DecisionTree預測結果
 	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['decisionTree_clf']))
+}
 
 
-	// {'sentence_score': [-1.3743185523130563], 'window_score': [-0.6895075608151632], 'dialogue_score': [-0.6895075608151632], 'sentence_classifier': {'linearSVC_clf': -1, 'naive_bayes_clf': 1, 'naive_bayes_proba': [[0.45918766456224996, 0.5408123354377498]], 'randomForest_clf': -1, 'randomForest_proba': [[0.663774910437622, 0.3362250895623779]], 'decisionTree_clf': -1, 'decisionTree_proba': [[0.6403865004901275, 0.3596134995098726]]}, 'windows_classifier': {'linearSVC_clf': -1, 'naive_bayes_clf': 1, 'naive_bayes_proba': [[0.45918766456224996, 0.5408123354377498]], 'randomForest_clf': -1, 'randomForest_proba': [[0.663774910437622, 0.3362250895623779]], 'decisionTree_clf': -1, 'decisionTree_proba': [[0.6403865004901275, 0.3596134995098726]]}, 'dialogue_classifier': {'linearSVC_clf': -1, 'naive_bayes_clf': 1, 'naive_bayes_proba': [[0.45918766456224996, 0.5408123354377498]], 'randomForest_clf': -1, 'randomForest_proba': [[0.663774910437622, 0.3362250895623779]], 'decisionTree_clf': -1, 'decisionTree_proba': [[0.6403865004901275, 0.3596134995098726]]}}
+function drawPath(svg, datalist){
 
-    
+	margin = {top: 20, right: 20, bottom: 30, left: 50},
+	width = +svg.attr("width") - margin.left - margin.right,
+	height = +svg.attr("height") - margin.top - margin.bottom,
+	g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	var x = d3.scaleLinear()
+			    .range([0, width])
+			    .domain([0, 10]);
 
-    var dialogue = document.getElementById("dialogue");
+			var y = d3.scaleLinear()
+			    .rangeRound([height, 0])
+			    .domain([-5, 10]);
 
+			var line = d3.line()
+			    .x(function(d) { return x(d.x); })
+			    .y(function(d) { return y(d.y); })
+
+	g.append("g")
+		.attr("class", "x axis")
+		      	.attr("transform", "translate(0," + height + ")")
+		      	.call(d3.axisBottom(x));
+
+	g.append("g")
+			      .call(d3.axisLeft(y))
+			    .append("text")
+			      .attr("fill", "#000")
+			      .attr("transform", "rotate(-90)")
+			      .attr("y", 6)
+			      .attr("dy", "0.71em")
+			      .attr("text-anchor", "end")
+			      .text("score ($)");
+
+	g.append("path")
+			      .attr("fill", "none")
+			      .attr("stroke", "steelblue")
+			      .attr("stroke-linejoin", "round")
+			      .attr("stroke-linecap", "round")
+			      .attr("stroke-width", 1.5)
+			      .attr("d", line(datalist));
 }
 
 // Ajax
@@ -225,56 +302,34 @@ function callApi(){
 	      alert('Ajax request 發生錯誤');
 	    },
     	success: function(result){
-    		g.remove();
-    		svg = d3.select("svg"),
-		    margin = {top: 20, right: 20, bottom: 30, left: 50},
-		    width = +svg.attr("width") - margin.left - margin.right,
-		    height = +svg.attr("height") - margin.top - margin.bottom,
-		    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    		data = {}
+    		data['x'] = counter
+    		data['y'] = result['sentence_score'][0] 
+    		sentenceDataList.push(data);
 
-			var x = d3.scaleLinear()
-			    .range([0, width])
-			    .domain([0, 10]);
+    		data = {}
+    		data['x'] = counter
+    		data['y'] = result['window_score'][0] 
+    		windowsDataList.push(data);
 
-			var y = d3.scaleLinear()
-			    .rangeRound([height, 0])
-			    .domain([-3, 5]);
-
-			var line = d3.line()
-			    .x(function(d) { return x(d.x); })
-			    .y(function(d) { return y(d.y); })
-
-			updateTable(result);
-    		console.log(result);
     		data = {}
     		data['x'] = counter
     		data['y'] = result['dialogue_score'][0] 
-    		datalist.push(data);
-        	// $("#div1").html(result);
-        	console.log(datalist);
+    		dialogueDataList.push(data);
 
-        	g.append("g")
-		      	.attr("class", "x axis")
-		      	.attr("transform", "translate(0," + height + ")")
-		      	.call(d3.axisBottom(x));
+    		sentence_g.remove();
+    		sentenceSvg = d3.select("#sentenceSvg");
+    		drawPath(sentenceSvg, sentenceDataList);
 
-			g.append("g")
-			      .call(d3.axisLeft(y))
-			    .append("text")
-			      .attr("fill", "#000")
-			      .attr("transform", "rotate(-90)")
-			      .attr("y", 6)
-			      .attr("dy", "0.71em")
-			      .attr("text-anchor", "end")
-			      .text("score ($)");
+			windows_g.remove();
+			windowsSvg = d3.select("#windowsSvg");
+    		drawPath(windowsSvg, windowsDataList);
 
-			g.append("path")
-			      .attr("fill", "none")
-			      .attr("stroke", "steelblue")
-			      .attr("stroke-linejoin", "round")
-			      .attr("stroke-linecap", "round")
-			      .attr("stroke-width", 1.5)
-			      .attr("d", line(datalist));
+			dialogue_g.remove();
+			dialogueSvg = d3.select("#dialogueSvg");
+			drawPath(dialogueSvg, dialogueDataList);
+
+			updateTable(result, $('#search-term').val());
 
 			counter+=1;
 		}
