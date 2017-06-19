@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>D-Day</title>
+<title>ASUS Customer Service</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -129,6 +129,11 @@ var y = d3.scaleLinear()
       .attr("text-anchor", "end")
       .text("Score ($)");
 
+  sentence_g.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (width/2) +","+(height+25)+")")  // centre below axis
+            .text("單句對話分析");
+
  windows_g.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -144,6 +149,11 @@ var y = d3.scaleLinear()
       .attr("text-anchor", "end")
       .text("Score ($)");
 
+      windows_g.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (width/2) +","+(height+25)+")")  // centre below axis
+            .text("三句內對話分析");
+
    dialogue_g.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -158,6 +168,11 @@ var y = d3.scaleLinear()
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
       .text("Score ($)");
+
+   dialogue_g.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (width/2) +","+(height+25)+")")  // centre below axis
+            .text("完整對話分析");
 
 function buildTdElement(TrElement, dataInfo){
 	var y = document.createElement("TD");
@@ -251,7 +266,7 @@ function updateTable(data, sentence_value){
 }
 
 
-function drawPath(svg, datalist){
+function drawPath(svg, datalist, label){
 
 	margin = {top: 20, right: 20, bottom: 30, left: 50},
 	width = +svg.attr("width") - margin.left - margin.right,
@@ -291,6 +306,11 @@ function drawPath(svg, datalist){
 			      .attr("stroke-linecap", "round")
 			      .attr("stroke-width", 1.5)
 			      .attr("d", line(datalist));
+    g.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (width/2) +","+(height+25)+")")  // centre below axis
+            .text(label);
+
 }
 
 // Ajax
@@ -320,17 +340,18 @@ function callApi(){
     		data['y'] = result['dialogue_score'][0] 
     		dialogueDataList.push(data);
 
-    		sentence_g.remove();
+    		console.log(sentence_g);
+    		sentenceSvg.selectAll("*").remove();
     		sentenceSvg = d3.select("#sentenceSvg");
-    		drawPath(sentenceSvg, sentenceDataList);
+    		drawPath(sentenceSvg, sentenceDataList, "單句對話分析");
 
-			windows_g.remove();
+			windowsSvg.selectAll("*").remove();
 			windowsSvg = d3.select("#windowsSvg");
-    		drawPath(windowsSvg, windowsDataList);
+    		drawPath(windowsSvg, windowsDataList, "三句內對話分析");
 
-			dialogue_g.remove();
+    		dialogueSvg.selectAll("*").remove();
 			dialogueSvg = d3.select("#dialogueSvg");
-			drawPath(dialogueSvg, dialogueDataList);
+			drawPath(dialogueSvg, dialogueDataList, "完整對話分析");
 
 			updateTable(result, $('#search-term').val());
 
