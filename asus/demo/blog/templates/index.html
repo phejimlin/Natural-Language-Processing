@@ -43,7 +43,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </div>
 </div>
-<svg width="960" height="500"></svg>
+
+
+<div class="container">
+  <h2>情緒＆滿意度偵測程式</h2>
+  <p>將客戶的語句，打上右上角的搜尋框，程式將分析這句話的程序與滿意度。</p>          
+  <svg width="480" height="250"></svg>  
+  <table class="table table-bordered" id="demoTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>情緒分數</th>
+        <th>結果</th>
+        <th>LinearSVC預測結果</th>
+        <th>Naive_Bayes預測結果</th>
+        <th>RandomForest預測結果</th>
+        <th>DecisionTree預測結果</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id='sentence'>
+      </tr>
+      <tr id='windows'>
+      	
+      </tr>
+      <tr id='dialogue'>
+      	
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <!-- for bootstrap working -->
 <!-- //for bootstrap working -->
@@ -73,32 +102,6 @@ var line = d3.line()
 		.x(function(d) { return d.x; })
 		.y(function(d) { return d.y; })
 
-// var line = d3.line()
-//     .x(d3.extent([1,2,3,4,5]))
-//     .y(d3.extent([1,2,3,4,5]));
-
-// x.domain(d3.extent(lineData, function(d) { return d.x; }));
-// y.domain(d3.extent(lineData, function(d) { return d.y; }));
-
-// d3.tsv("data.tsv", function(d) {
-//   d.date = parseTime(d.date);
-//   d.close = +d.close;
-//   return d;
-// }, function(error, data) {
-//   if (error) throw error;
-
-//   x.domain(d3.extent(data, function(d) { return d.date; }));
-//   y.domain(d3.extent(data, function(d) { return d.close; }));
-
-  // g.append("g")
-  //     .attr("transform", "translate(0," + height + ")")
-  //     .call(d3.axisBottom(x))
-  //   .select(".domain")
-  //     .remove();
-
-
-
-
 
   g.append("g")
       .attr("class", "x axis")
@@ -115,15 +118,103 @@ var line = d3.line()
       .attr("text-anchor", "end")
       .text("Price ($)");
 
-  // g.append("path")
-  //     .attr("fill", "none")
-  //     .attr("stroke", "steelblue")
-  //     .attr("stroke-linejoin", "round")
-  //     .attr("stroke-linecap", "round")
-  //     .attr("stroke-width", 1.5)
-  //     .attr("d", line(lineData));
-// });
+function buildTdElement(TrElement, dataInfo){
+	var y = document.createElement("TD");
+    var t = document.createTextNode(dataInfo);
+    y.appendChild(t);
+    TrElement.appendChild(y);
+}
 
+var w2v_svr_pos_threshold = -0.2
+var w2v_svr_neg_threshold = -0.45
+
+function score2text(score){
+    if(score > w2v_svr_pos_threshold){
+        return '滿意';
+	}
+    else if (score < w2v_svr_neg_threshold){
+        return '不滿意';
+    }
+    else{
+        return '中立';
+    }
+}
+
+function lableResult(score){
+	if(score==1){
+		return '滿意';
+	} else {
+		return '不滿意';
+	}
+}
+
+function updateTable(data){
+	// todo remove original windows
+	var sentence = document.createElement("TR");
+	sentence.setAttribute("id", "sentence");
+    document.getElementById("demoTable").appendChild(sentence);
+    // 次序
+    console.log(counter);
+    buildTdElement(sentence, counter)
+	// 情緒分數
+	buildTdElement(sentence, data['sentence_score'][0].toFixed(3))
+	//結果
+	buildTdElement(sentence, score2text(data['sentence_score']))
+	//LinearSVC預測結果
+	buildTdElement(sentence, lableResult(data['sentence_classifier']['linearSVC_clf']))
+	//Naive_Bayes預測結果
+	buildTdElement(sentence, lableResult(data['sentence_classifier']['naive_bayes_clf']))
+	//RandomForest預測結果
+	buildTdElement(sentence, lableResult(data['sentence_classifier']['randomForest_clf']))
+	// DecisionTree預測結果
+	buildTdElement(sentence, lableResult(data['sentence_classifier']['decisionTree_clf']))
+
+
+	var windows = document.createElement("TR");
+    windows.setAttribute("id", "windows");
+    document.getElementById("demoTable").appendChild(windows);
+    // 次序
+    buildTdElement(windows, '三句內對話')
+	// 情緒分數
+	buildTdElement(windows, data['window_score'][0].toFixed(3))
+	//結果
+	buildTdElement(windows, score2text(data['sentence_score']))
+	//LinearSVC預測結果
+	buildTdElement(windows, lableResult(data['windows_classifier']['linearSVC_clf']))
+	//Naive_Bayes預測結果
+	buildTdElement(windows, lableResult(data['windows_classifier']['naive_bayes_clf']))
+	//RandomForest預測結果
+	buildTdElement(windows, lableResult(data['windows_classifier']['randomForest_clf']))
+	// DecisionTree預測結果
+	buildTdElement(windows, lableResult(data['windows_classifier']['decisionTree_clf']))
+
+
+	var dialogue = document.createElement("TR");
+    dialogue.setAttribute("id", "dialogue");
+    document.getElementById("demoTable").appendChild(dialogue);
+    // 次序
+    buildTdElement(dialogue, '完整對話')
+	// 情緒分數
+	buildTdElement(dialogue, data['dialogue_score'][0].toFixed(3))
+	//結果
+	buildTdElement(dialogue, score2text(data['sentence_score']))
+	//LinearSVC預測結果
+	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['linearSVC_clf']))
+	//Naive_Bayes預測結果
+	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['naive_bayes_clf']))
+	//RandomForest預測結果
+	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['randomForest_clf']))
+	// DecisionTree預測結果
+	buildTdElement(dialogue, lableResult(data['dialogue_classifier']['decisionTree_clf']))
+
+
+	// {'sentence_score': [-1.3743185523130563], 'window_score': [-0.6895075608151632], 'dialogue_score': [-0.6895075608151632], 'sentence_classifier': {'linearSVC_clf': -1, 'naive_bayes_clf': 1, 'naive_bayes_proba': [[0.45918766456224996, 0.5408123354377498]], 'randomForest_clf': -1, 'randomForest_proba': [[0.663774910437622, 0.3362250895623779]], 'decisionTree_clf': -1, 'decisionTree_proba': [[0.6403865004901275, 0.3596134995098726]]}, 'windows_classifier': {'linearSVC_clf': -1, 'naive_bayes_clf': 1, 'naive_bayes_proba': [[0.45918766456224996, 0.5408123354377498]], 'randomForest_clf': -1, 'randomForest_proba': [[0.663774910437622, 0.3362250895623779]], 'decisionTree_clf': -1, 'decisionTree_proba': [[0.6403865004901275, 0.3596134995098726]]}, 'dialogue_classifier': {'linearSVC_clf': -1, 'naive_bayes_clf': 1, 'naive_bayes_proba': [[0.45918766456224996, 0.5408123354377498]], 'randomForest_clf': -1, 'randomForest_proba': [[0.663774910437622, 0.3362250895623779]], 'decisionTree_clf': -1, 'decisionTree_proba': [[0.6403865004901275, 0.3596134995098726]]}}
+
+    
+
+    var dialogue = document.getElementById("dialogue");
+
+}
 
 // Ajax
 function callApi(){
@@ -153,8 +244,8 @@ function callApi(){
 			    .x(function(d) { return x(d.x); })
 			    .y(function(d) { return y(d.y); })
 
-
-    		console.log(result)
+			updateTable(result);
+    		console.log(result);
     		data = {}
     		data['x'] = counter
     		data['y'] = result['dialogue_score'][0] 
