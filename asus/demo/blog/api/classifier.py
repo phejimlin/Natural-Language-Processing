@@ -108,20 +108,21 @@ def classifier(sentence_cut):
     return classifier_dict
 
 
+global_dialogue = {}
 window=3
+def verify(sentence, uid):
+    if uid not in global_dialogue.keys():
+        global_dialogue[uid] = []
 
-sentence = ''
-dialogue = []
-def verify(sentence):
     result = {}
-    dialogue.append(sentence)
+    global_dialogue[uid].append(sentence)
     dialogue_in_window=''
     whole_dialogue = ''
             
-    for d in dialogue[window *- 1:]:
+    for d in global_dialogue[uid][window *- 1:]:
         dialogue_in_window += d + ' '
                
-    for d in dialogue:
+    for d in global_dialogue[uid]:
         whole_dialogue += d + ' '
 
     sentence_cut = jieba_cut(sentence)
@@ -161,3 +162,9 @@ def verify(sentence):
     result['dialogue_classifier'] = classifier(dialogue_cut)
     print(result)
     return result
+
+
+def clear_data(uid):
+    if uid in global_dialogue.keys():
+        global_dialogue.pop(uid, None)
+    return None

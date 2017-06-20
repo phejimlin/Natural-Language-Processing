@@ -28,10 +28,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" rel="home" href="/" title="Aahan Krish's Blog - Homepage">ASUS Customer Service</a>
+        <a class="navbar-brand" rel="home" href="/" title="">ASUS Customer Service</a>
+    </div>
+
+    <div class="nav navbar-nav navbar-left">
+    	<button type="button" id="clear" class="btn btn-default navbar-btn">重啟對話</button>
     </div>
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
+
         <div class="col-sm-3 col-md-3 pull-right">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="search-term" id="search-term">
@@ -40,13 +45,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         </div>
-
     </div>
+
 </div>
 
 
 <div class="container">
-  <h2>情緒＆滿意度偵測程式</h2>
+  <h2>情緒＆滿意度偵測模型</h2>
   <p>將客戶的語句，打上右上角的搜尋框，程式將分析這句話的程序與滿意度。</p>          
   <svg id='sentenceSvg' width="360" height="250"></svg>
   <svg id='windowsSvg' width="360" height="250"></svg>  
@@ -278,7 +283,7 @@ function drawPath(svg, datalist, label){
 
 			var y = d3.scaleLinear()
 			    .rangeRound([height, 0])
-			    .domain([-5, 10]);
+			    .domain([-2, 5]);
 
 			var line = d3.line()
 			    .x(function(d) { return x(d.x); })
@@ -360,8 +365,29 @@ function callApi(){
 	});
 }
 
+function clear(){
+	var url = window.location.href;
+	var arr = url.split("/");
+	var result = arr[0] + "//" + arr[2];
+	$.ajax({
+    	url: result+"/clear",
+    	type: 'GET',
+    	error: function(xhr) {
+	      alert('Ajax request 發生錯誤');
+	    },
+    	success: function(result){
+    		console.log(result);
+    		window.location.reload();
+    	}
+	});
+}
+
 $("#submit").click(function(){
     callApi();
+});
+
+$("#clear").click(function(){
+    clear();
 });
 
 $('#search-term').keydown(function (e){
